@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Blood Pressure Entry</title>
+</head>
+<body>
+    <h1>Delete Blood Pressure Entry</h1>
+    <p>Are you sure you want to delete the blood pressure entry?</p>
+    <p>Systolic: {{ blood_pressure.systolic }}</p>
+    <p>Diastolic: {{ blood_pressure.diastolic }}</p>
+    <p>Measured At: {{ blood_pressure.measured_at }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+</body>
+</html>

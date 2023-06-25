@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Pressure Tracker</title>
+</head>
+<body>
+    <h1>Blood Pressure List</h1>
+    <div>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="Blood Pressure Plot">
+    </div>
+    <ul>
+        {% for blood_pressure in blood_pressures %}
+        <li>
+            Systolic: {{ blood_pressure.systolic }}, Diastolic: {{ blood_pressure.diastolic }},
+            Measured At: {{ blood_pressure.measured_at }}
+            <a href="{% url 'delete_blood_pressure' blood_pressure.id %}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_blood_pressure' %}">Add Blood Pressure</a>
+</body>
+</html>
