@@ -15,6 +15,11 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import environ, os
+
+env = environ.Env()
+#environ.Env.read_env(BASE_DIR + "/" + "settings.env")
+environ.Env.read_env(os.path.join(BASE_DIR, "settings.env"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -122,3 +127,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.office365.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True  # Use False if your server does not use TLS
+EMAIL_HOST_USER = env.str('EMAIL_HOST_USER')  # Replace with your SMTP username or email
+EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD') # Replace with your SMTP password
+

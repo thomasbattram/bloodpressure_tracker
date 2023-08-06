@@ -22,4 +22,7 @@ urlpatterns = [
     path('', views.blood_pressure_list, name='blood_pressure_list'),
     path('add/', views.add_blood_pressure, name='add_blood_pressure'),
     path('delete/<int:blood_pressure_id>/', views.delete_blood_pressure, name='delete_blood_pressure'),
+    path('download/', views.download_data_excel, name='download_data_excel'),
+    path('send_pdf_email/', views.generate_pdf_and_send_email, name='generate_pdf_and_send_email'),  
+    path('download_pdf/', views.download_pdf, name='download_pdf'),  # Add this line for downloading the PDF
 ]
