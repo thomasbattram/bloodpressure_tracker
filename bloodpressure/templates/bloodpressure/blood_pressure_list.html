@@ -8,9 +8,9 @@
     <div>
         <img src="data:image/png;base64,{{ plot_url }}" alt="Blood Pressure Plot">
     </div>
-    <a href="{% url 'download_data_excel' %}" download>Download data</a><br><br>
+    <a href="{% url 'download_data_excel' %}" download>Download data</a><br>
     <a href="{% url 'generate_pdf_and_send_email' %}">Generate PDF and Send Email</a><br>
-    <a href="{% url 'download_pdf' %}" download>Download PDF</a><br>
+    <a href="{% url 'download_pdf' %}" download>Download PDF</a><br><br>
     <a href="{% url 'add_blood_pressure' %}">Add blood pressure measurement</a>
     <ul>
         {% for blood_pressure in blood_pressures %}
